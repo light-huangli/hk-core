@@ -16,7 +16,11 @@
     "build:update": "run-s update tsup --watch",
     "tsup": "tsup",
     "test": "vitest test",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "change": "changeset add",
+    "change:version": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish"
   },
   "author": "",
   "license": "ISC",

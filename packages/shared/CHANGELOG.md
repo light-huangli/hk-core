@@ -1,6 +1,6 @@
-# @hk-core/docs
+# @hk-core/shared
 
-## 1.0.0
+## 2.0.0
 
 ### Major Changes
 
