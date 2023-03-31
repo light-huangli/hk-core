@@ -18,14 +18,14 @@
     {
       "name": "GlobalStorage",
       "package": "core",
-      "lastUpdated": 0,
+      "lastUpdated": 1680228402000,
       "docs": "/core/GlobalStorage/",
       "description": "globalStorage全局缓存事件封装"
     },
     {
       "name": "is",
       "package": "shared",
-      "lastUpdated": 0,
+      "lastUpdated": 1680228402000,
       "docs": "/shared/is/",
       "description": ""
     }
