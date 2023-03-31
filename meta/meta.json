@@ -1,0 +1,33 @@
+{
+  "packages": {
+    "shared": {
+      "name": "shared",
+      "target": "es2015",
+      "dir": "packages/shared",
+      "docs": "docs/packages/shared"
+    },
+    "core": {
+      "name": "core",
+      "target": "es2015",
+      "dir": "packages/core",
+      "docs": "docs/packages/core"
+    }
+  },
+  "categories": [],
+  "functions": [
+    {
+      "name": "GlobalStorage",
+      "package": "core",
+      "lastUpdated": 0,
+      "docs": "/core/GlobalStorage/",
+      "description": "globalStorage全局缓存事件封装"
+    },
+    {
+      "name": "is",
+      "package": "shared",
+      "lastUpdated": 0,
+      "docs": "/shared/is/",
+      "description": ""
+    }
+  ]
+}

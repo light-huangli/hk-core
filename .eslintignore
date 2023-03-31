@@ -1,0 +1,6 @@
+dist
+node_modules
+!.vitepress/
+!.changeset/
+pnpm-lock.yaml
+playgrounds/**

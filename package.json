@@ -4,32 +4,56 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
     "format": "prettier --write --cache .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "run-s update docs:dev",
+    "update": "esno scripts/update.ts",
+    "docs:dev": "pnpm -C docs dev",
+    "build": "run-s update tsup",
+    "build:update": "run-s update tsup --watch",
+    "tsup": "tsup",
+    "test": "vitest test",
+    "coverage": "vitest run --coverage"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.15.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "@vitest/coverage-c8": "^0.29.8",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "esno": "^0.16.3",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.1",
+    "gray-matter": "^4.0.3",
+    "happy-dom": "^8.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.5",
-    "typescript": "^5.0.2"
+    "simple-git": "^3.17.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.8"
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx,md,json}": [
+    "*.{vue,js,ts,jsx,tsx,json}": [
       "pnpm run lint",
       "pnpm run format"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
