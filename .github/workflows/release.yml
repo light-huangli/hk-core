@@ -30,12 +30,12 @@ jobs:
 
       # https://github.com/pnpm/action-setup
       # 安装 pnpm
-      - name: Setup Pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7.x
           run_install: false
-          
+
       # cache
       - name: Get pnpm store directory
         id: pnpm-cache
