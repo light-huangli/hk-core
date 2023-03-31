@@ -11,6 +11,7 @@
     "dev": "run-s update docs:dev",
     "update": "esno scripts/update.ts",
     "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm run -C docs build",
     "build": "run-s update tsup",
     "build:update": "run-s update tsup --watch",
     "tsup": "tsup",
