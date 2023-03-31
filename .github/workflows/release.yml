@@ -19,7 +19,7 @@ jobs:
       # https://github.com/actions/checkout
       # 拉取代码
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # https://github.com/actions/setup-node
       # 安装 node
@@ -32,6 +32,7 @@ jobs:
       # 安装 pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
+        id: pnpm-install
         with:
           version: 7.x
           run_install: false
