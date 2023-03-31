@@ -34,6 +34,23 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7.x
+          run_install: false
+          
+      # cache
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+          
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
 
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 如果缓存没有命中，安装依赖
