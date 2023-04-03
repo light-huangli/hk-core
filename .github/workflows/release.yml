@@ -55,6 +55,7 @@ jobs:
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
         run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       # https://github.com/changesets/action
