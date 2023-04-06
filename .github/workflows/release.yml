@@ -1,34 +1,45 @@
+# https://docs.github.com/en/actions/using-workflows/about-workflows
+# 整个工作流的名称
 name: Release
 
+# 监听 main 分支的 push/pull_request 事件(有更新时)
 on:
   push:
-    tags:
-      - 'master'
+    branches:
+      - main
 
+# 所有的 jobs
 jobs:
+  # 定义一个名为 release 的 job
   release:
+    # 运行环境
     runs-on: ubuntu-latest
+    # 定义步骤
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
+      # https://github.com/actions/checkout
+      # 拉取代码
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup node
-        uses: actions/setup-node@v2
+      # https://github.com/actions/setup-node
+      # 安装 node
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16.x
           registry-url: https://registry.npmjs.org/
 
-      - name: Install pnpm
+      # https://github.com/pnpm/action-setup
+      # 安装 pnpm
+      - name: Setup Pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: latest
+          version: 7.x
 
+      # https://pnpm.io/zh/cli/install#--frozen-lockfile
+      # 如果缓存没有命中，安装依赖
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       # https://github.com/changesets/action
       # 自动创建发布 PR 或 发布 npm
